@@ -1,0 +1,43 @@
+1. search google : requires the APR/native library which is not available
+https://stackoverflow.com/questions/8716259/what-does-the-apr-based-apache-tomcat-native-library-was-not-found-mean
+
+2. download http://apache.is.co.za/tomcat/tomcat-connectors/native/1.2.24/binaries/tomcat-native-1.2.24-openssl-1.1.1g-ocsp-win32-bin.zip
+
+3. Extract and find tcnative-1.dll or tcnative-1.so
+
+4. copy tcnative-1 file to bin of apache tomcat
+
+5. configure self signed certificate
+
+https://www.youtube.com/watch?v=Kj0w3eK6MKI
+
+How to create a PEM file for HAProxy Configure SSL Certificate
+http://fosshelp.blogspot.in/2016/11/h...
+
+1
+Generate a unique private key KEY
+$sudo openssl genrsa -out mydomain.key 2048
+
+Note:
+Content in this file start with -----BEGIN RSA PRIVATE KEY-----
+
+2
+Generating a Certificate Signing Request CSR
+$sudo openssl req -new -key mydomain.key -out mydomain.csr
+
+Note:
+Content in this file start with -----BEGIN CERTIFICATE REQUEST-----
+
+3
+Creating a Self-Signed Certificate CRT
+$openssl x509 -req -days 365 -in mydomain.csr -signkey mydomain.key -out mydomain.crt
+
+Note:
+Content in this file start with -----BEGIN CERTIFICATE-----
+
+4
+Append KEY and CRT to mydomain.pem
+$sudo bash -c 'cat mydomain.key mydomain.crt /etc/ssl/private/mydomain.pem'
+
+Note:
+This pem file contains 2 sections certificates, one start with -----BEGIN RSA PRIVATE KEY----- and  another one start with -----BEGIN CERTIFICATE-----
