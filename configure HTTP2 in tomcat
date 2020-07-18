@@ -7,8 +7,10 @@ https://stackoverflow.com/questions/8716259/what-does-the-apr-based-apache-tomca
 
 4. copy tcnative-1 file to bin of apache tomcat
 
-5. configure self signed certificate
+5. download openssl 
+https://sourceforge.net/projects/openssl/
 
+6. configure self signed certificate
 https://www.youtube.com/watch?v=Kj0w3eK6MKI
 
 How to create a PEM file for HAProxy Configure SSL Certificate
