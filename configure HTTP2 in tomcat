@@ -4,7 +4,7 @@ https://stackoverflow.com/questions/8716259/what-does-the-apr-based-apache-tomca
 2. download http://apache.is.co.za/tomcat/tomcat-connectors/native/1.2.24/binaries/tomcat-native-1.2.24-openssl-1.1.1g-ocsp-win32-bin.zip
 
 3. Extract and find tcnative-1.dll or tcnative-1.so
-
+   
 4. copy tcnative-1 file to bin of apache tomcat
 
 5. download openssl 
